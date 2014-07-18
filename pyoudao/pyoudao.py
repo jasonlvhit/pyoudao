@@ -26,7 +26,7 @@ class pyoudaoException(Exception):
         self.value = self.errorCode[code]
 
     def __repr__(self):
-        return 'pyoudao execption : %s', self.value
+        return 'pyoudao execption : %s'% self.value
 
 
 def request(q):
