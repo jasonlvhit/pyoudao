@@ -161,7 +161,7 @@ def queryTrie(root, word):
 
     index = ord(word[0])
     if len(word) == 1:
-        if root.child[index].child[ord('\n')].inter != "":
+        if root.child[index].child[ord('\n')] != None and root.child[index].child[ord('\n')].inter != "":
             print("================pyoudao===============")
             print("查询:"),
             print(word)
@@ -181,7 +181,7 @@ def localQuery(word):
     if(not word[0].isalpha()):
         raise pyoudaoException("invalid local query word")
 
-    root = createTrie(word[0])
+    root = createTrie("data/" + word[0])
     # print(root.child[ord('a')].child[ord('\n')].inter)
     queryTrie(root, word)
     # localshow(res)
@@ -198,7 +198,7 @@ def get_parser():
     parser.add_argument(
         '-o', '--online', type=str, nargs='*', help='online translation')
     parser.add_argument('-l', '--local', type=str, nargs='*',
-                        help='offline translation, for a given english word, return the chinese meaning')
+                        help='offline translation, for the given english word, return the chinese meaning')
     return parser
 
 
